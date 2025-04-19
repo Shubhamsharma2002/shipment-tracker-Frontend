@@ -1,54 +1,65 @@
-# React + TypeScript + Vite
+# 🚚 Shipment Tracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple frontend application built with **React**, **TypeScript**, and **Vite** to track the status of shipments by ID.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🖥️ Features
 
-## Expanding the ESLint configuration
+- Search by Shipment ID
+- Display current shipment status
+- View full shipment status history with timestamps
+- Clean, responsive UI
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## ⚙️ Tech Stack
+
+- React
+- TypeScript
+- Vite
+- Axios (for API calls)
+- Tailwind CSS 
+
+---
+
+
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/your-username/shipment-tracker-frontend.git
+```
+---
+## Install Dependencies
+ - npm install
+## Run the App
+ - npm run dev
+---
+
+## 📂 Project Structure
+```bash
+shipment-tracker-frontend/
+├── public/
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── pages/             # Main page components
+│   ├── services/          # API service logic
+│   ├── App.tsx            # Root component
+│   ├── main.tsx           # Vite entry point
+│   └── index.css          # Styles
+├── .env
+├── vite.config.ts
+├── tsconfig.json
+└── README.md
+
+
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📫 Connect With Me
+ ## 👤 Developer : SHUBHAM SHARMA
+ 
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Shubhamsharma2002)  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shubhamsharma2026/)   [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:shubhamjii2002@gmail.com)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
