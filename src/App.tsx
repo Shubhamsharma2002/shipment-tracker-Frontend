@@ -1,12 +1,25 @@
 
 import './App.css'
-import Hello from './Components/Navbar'
+import Footer from './Components/Footer'
+import Navbar from './Components/Navbar'
+
 
 function App() {
  
   return (
         <>
-          <Hello/>
+          <div className="flex flex-col min-h-screen">
+      <Navbar />
+      
+      <main className="flex-grow p-4">
+        <h1 className="text-3xl font-bold underline">
+          Hello world!
+        </h1>
+        {/* Add your <Routes> here if needed */}
+      </main>
+
+      <Footer />
+    </div>
         </>
   )
 }

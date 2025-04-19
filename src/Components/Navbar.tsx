@@ -3,13 +3,13 @@ import Logo from "../assets/Logo.webp";
 import { TiThMenu, TiTimes } from "react-icons/ti"; // <- added close icon
 import { useState } from "react";
 
-const Hello = () => {
+const Navbar = () => {
   const [menu, setMenu] = useState(false);
 
   return (
     <div className="bg-indigo-500 text-white relative overflow-hidden">
       {/* Navbar */}
-      <div className="flex justify-between items-center p-4 md:px-32">
+      <div className="flex justify-around items-center p-4 md:px-32">
         {/* Logo */}
         <Link to="/">
           <img src={Logo} alt="Website Logo" className="h-12" />
@@ -54,4 +54,4 @@ const Hello = () => {
   );
 };
 
-export default Hello;
+export default Navbar;
