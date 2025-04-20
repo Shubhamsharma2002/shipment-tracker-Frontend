@@ -12,7 +12,7 @@ const TrackingInputPage = () => {
     const id = shipmentId.trim();
     if (!id) return alert('Please enter a valid Shipment ID');
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/shipments/${id}/track`, {
+      const res = await fetch(`https://shipment-tracker.up.railway.app/api/v1/shipments/${id}/track`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -25,14 +25,15 @@ const TrackingInputPage = () => {
       }
 
       const data = await res.json(); // shipment tracking info
-        console.log('====================================');
+        
         console.log(data);
-        console.log('====================================');
+        
       // navigate(`/result/${id}`, { state: { shipment: data } }); // pass data to result page
+      navigate(`/result/${id}`, { state: { shipment: data } });
     } catch (error) {
-      
+      console.error("Error fetching shipment data:", error);
     }
-    navigate(`/result/${id}`);
+    
   }
   return (
     <>
