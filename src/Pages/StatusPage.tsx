@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import StatusUpdateItem from "../Components/StatusUpdateItem";
 import { useParams } from "react-router-dom";
+import { FaTruckPickup } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 function StatusPage() {
-  const { id } = useParams(); // Extract shipment ID from the URL
-  console.log('====================================');
-  console.log(id);
-  console.log('====================================');
+  // Extract shipment ID from the URL
+  const { id } = useParams(); 
   const [status, setStatus] = useState("");
   const [location, setLocation] = useState("");
   const [timestamp, setTimestamp] = useState("");
@@ -23,20 +23,22 @@ function StatusPage() {
     };
 
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/shipments/${id}/status`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        `https://shipment-tracker.up.railway.app/api/v1/shipments/${id}/status`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
-      // Debugging the response
       const data = await response.json();
-      console.log("Response Data:", data); // Log the response from the API
+      console.log("Response Data:", data);
 
       if (!response.ok) {
-        throw new Error(`Failed to update status: ${data.message || 'Unknown error'}`);
+        throw new Error(`Failed to update status: ${data.message || "Unknown error"}`);
       }
 
       setShowItem(true);
@@ -45,27 +47,32 @@ function StatusPage() {
       setTimeout(() => {
         setShowAlert(false);
       }, 2000);
-    } catch (error) {
-      console.error("Error updating status:", error);
-      alert("❌ Failed to update status. Please try again.");
+    } catch (error:any) {
+      toast.error(`${error.message}`);
     }
   };
 
   return (
     <div className="max-w-md mx-auto p-6">
-      <h1 className="text-xl font-bold mb-4">Update Shipment Status</h1>
+      <h1 className="text-xl font-bold mb-4 flex items-center gap-2">
+        <FaTruckPickup className="text-3xl text-pink-500" />
+        Update Shipment Status
+      </h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium">Status</label>
-          <input
-            type="text"
+          <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
             className="w-full border border-gray-300 rounded px-3 py-2"
-            placeholder="e.g. Out for Delivery"
             required
-          />
+          >
+            <option value="" disabled>Select status</option>
+            <option value="PICKUP">PICKUP</option>
+            <option value="IN_TRANSIT">IN_TRANSIT</option>
+            <option value="DELIVERED">DELIVERED</option>
+          </select>
         </div>
 
         <div>
@@ -93,7 +100,7 @@ function StatusPage() {
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
           Submit
         </button>
@@ -101,7 +108,7 @@ function StatusPage() {
 
       {showAlert && (
         <div className="mt-4 p-3 bg-green-100 text-green-800 rounded text-sm">
-          ✅ Status updated
+           Status updated
         </div>
       )}
 

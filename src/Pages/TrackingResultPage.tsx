@@ -17,7 +17,7 @@ const TrackingResultPage: React.FC = () => {
   const { shipmentId, productName, origin, deliveryAddress, statusHistory } = shipment;
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded shadow">
+    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded shadow border-2 border-blue-600">
       <h2 className="text-2xl font-bold text-blue-600 mb-6 text-center">Tracking Result for {id}</h2>
 
       {/* Static Shipment Details */}
@@ -30,7 +30,7 @@ const TrackingResultPage: React.FC = () => {
 
       {/* Status History */}
       <h3 className="text-xl font-semibold mt-8 mb-4 text-gray-800">Status History</h3>
-      <StatusHistory statusHistory={statusHistory} /> {/* Use the new component */}
+      <StatusHistory statusHistory={statusHistory} />
     </div>
   );
 };

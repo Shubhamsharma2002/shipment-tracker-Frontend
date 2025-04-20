@@ -18,7 +18,7 @@ A simple frontend application built with **React**, **TypeScript**, and **Vite**
 - React
 - TypeScript
 - Vite
-- Axios (for API calls)
+- React-router-dom
 - Tailwind CSS 
 
 ---
@@ -42,19 +42,33 @@ git clone https://github.com/your-username/shipment-tracker-frontend.git
 shipment-tracker-frontend/
 ├── public/
 ├── src/
-│   ├── components/        # Reusable UI components
-│   ├── pages/             # Main page components
-│   ├── services/          # API service logic
-│   ├── App.tsx            # Root component
-│   ├── main.tsx           # Vite entry point
-│   └── index.css          # Styles
+│   ├── assets/                   
+│   │   ├── Logo.webp
+│   │   └── Homepage.jpg
+│   │
+│   ├── components/              # Reusable UI components
+│   │   ├── Footer.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── ShipmentCard.tsx
+│   │   ├── ShipmentDetail.tsx
+│   │   ├── ShipmentIdForm.tsx
+│   │   ├── StatusHistory.tsx
+│   │   └── StatusUpdateItem.tsx
+│   │
+│   ├── pages/                   # Main page components
+│   │   ├── AllShipmentsPage.tsx
+│   │   ├── StatusPage.tsx
+│   │   ├── TrackingInputPage.tsx
+│   │   ├── TrackingResultPage.tsx
+│   │   └── Homepage.tsx
+│   │
+│   ├── App.tsx                  # Root component
+│   ├── main.tsx                 # Vite entry point
+│   └── index.css                # Global styles
 ├── .env
 ├── vite.config.ts
 ├── tsconfig.json
 └── README.md
-
-
-
 ```
 
 

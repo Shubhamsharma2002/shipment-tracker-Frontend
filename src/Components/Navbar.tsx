@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.webp";
 import { TiThMenu, TiTimes } from "react-icons/ti"; // <- added close icon
 import { useState } from "react";
@@ -17,9 +17,27 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden xl:flex gap-6 font-bold">
-          <Link to="/">Track Shipment</Link>
-          <Link to="/">Status</Link>
-          <Link to="/">Admin</Link>
+          <NavLink
+            to="/track"
+            className={({ isActive }) =>
+              `block py-2 pr-4 pl-3 duration-200 ${
+                isActive ? "text-orange-700" : "text-white"
+              } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+            }
+          >
+            Track Shipment
+          </NavLink>
+
+          <NavLink
+            to="/allShipment"
+            className={({ isActive }) =>
+              `block py-2 pr-4 pl-3 duration-200 ${
+                isActive ? "text-orange-700" : "text-white"
+              } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+            }
+          >
+            All Shipment
+          </NavLink>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -45,9 +63,29 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col gap-4 px-6 font-semibold items-center">
-          <Link to="/" onClick={() => setMenu(false)}>Track Shipment</Link>
-          <Link to="/" onClick={() => setMenu(false)}>Status</Link>
-          <Link to="/" onClick={() => setMenu(false)}>Admin</Link>
+          <NavLink
+          onClick={() => setMenu(false)}
+            to="/track"
+            className={({ isActive }) =>
+              `block py-2 pr-4 pl-3 duration-200 ${
+                isActive ? "text-orange-700" : "text-white"
+              } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+            }
+          >
+            Track Shipment
+          </NavLink>
+          <NavLink
+          onClick={() => setMenu(false)}
+            to="/allShipment"
+            className={({ isActive }) =>
+              `block py-2 pr-4 pl-3 duration-200 ${
+                isActive ? "text-orange-700" : "text-white"
+              } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+            }
+          >
+            All Shipment
+          </NavLink>
+          
         </div>
       </div>
     </div>

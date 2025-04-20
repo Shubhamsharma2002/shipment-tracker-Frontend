@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ShipmentCard from "../Components/ShipmentCard";
+import { MdProductionQuantityLimits } from "react-icons/md";
 
 
 interface Shipment {
@@ -14,7 +15,7 @@ function AllShipmentsPage() {
   const [shipments, setShipments] = useState<Shipment[]>([]);
 
   useEffect(() => {
-    // Replace this with your actual API call
+   
     fetch("https://shipment-tracker.up.railway.app/api/v1/create/allShipment")
       .then((res) => res.json())
       .then((data) => setShipments(data))
@@ -23,7 +24,7 @@ function AllShipmentsPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">📋 All Shipments</h1>
+      <h1 className="text-2xl font-bold mb-6  flex gap-1 "><MdProductionQuantityLimits className="text-3xl text-fuchsia-700" /> All Shipments</h1>
       {shipments.map((shipment) => (
         <ShipmentCard
           key={shipment._id}

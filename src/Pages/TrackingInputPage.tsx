@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ShipmentIdForm from "../Components/ShipmentIdForm"
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { BsClipboardData } from "react-icons/bs";
 
 
 
@@ -20,15 +22,16 @@ const TrackingInputPage = () => {
       });
       if (!res.ok) {
         const err = await res.json();
-        alert(`Tracking failed: ${err.message || res.statusText}`);
+        toast.error(`Tracking failed: ${err.message || res.statusText}`);
+        
         return;
       }
-
-      const data = await res.json(); // shipment tracking info
+      // shipment tracking info
+      const data = await res.json(); 
         
         console.log(data);
         
-      // navigate(`/result/${id}`, { state: { shipment: data } }); // pass data to result page
+      // navigate to result page
       navigate(`/result/${id}`, { state: { shipment: data } });
     } catch (error) {
       console.error("Error fetching shipment data:", error);
@@ -37,7 +40,7 @@ const TrackingInputPage = () => {
   }
   return (
     <>
-    <h4 className="text-center font-bold text-blue-600">Enter your Shipment Id</h4>
+    <h4 className="justify-center font-bold text-blue-600 flex gap-2"> <BsClipboardData className="text-3xl text-blue-700" />Enter your Shipment Id</h4>
     <div className="text-center mt-5">
 
       <ShipmentIdForm 

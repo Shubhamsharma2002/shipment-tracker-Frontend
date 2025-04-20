@@ -8,12 +8,14 @@ import TrackingInputPage from './Pages/TrackingInputPage.tsx'
 import TrackingResultPage from './Pages/TrackingResultPage.tsx'
 import StatusPage from './Pages/StatusPage.tsx'
 import AllShipmentsPage from './Pages/AllShipmentsPage.tsx'
+import Homepage from './Pages/Homepage.tsx'
 
 
 const router = createBrowserRouter(
 
   createRoutesFromElements(
     <Route path='/' element={<App />}>
+      <Route index element={<Homepage />} />
       <Route path='track' element={<TrackingInputPage />} />
        <Route path='result/:id' element={<TrackingResultPage />} />
        <Route path='allShipment' element={<AllShipmentsPage />} /> 
