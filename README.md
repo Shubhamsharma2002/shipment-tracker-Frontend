@@ -36,7 +36,10 @@ git clone https://github.com/your-username/shipment-tracker-frontend.git
 ## Run the App
  - npm run dev
 ---
+## Hosted Link
 
+You can access the live version of the application here:  
+[https://shipmenttraker-by-shubham.netlify.app/](https://shipmenttraker-by-shubham.netlify.app/)
 ## 📂 Project Structure
 ```bash
 shipment-tracker-frontend/
