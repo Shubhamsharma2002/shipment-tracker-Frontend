@@ -28,7 +28,7 @@ A simple frontend application built with **React**, **TypeScript**, and **Vite**
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/your-username/shipment-tracker-frontend.git
+git clone https://github.com/Shubhamsharma2002/shipment-tracker-Frontend.git
 ```
 ---
 ## Install Dependencies
